@@ -38,6 +38,10 @@ class _HomePageState extends State<HomePage> {
               onPressed: () => context.go('/details'),
               child: const Text('Go to details page'),
             ),
+            ElevatedButton(
+              onPressed: () => context.go('/settings'),
+              child: const Text('Go to settings page'),
+            ),
           ],
         ),
       ),

@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'pages/home_page.dart';
+import 'pages/settings_page.dart';
 import 'pages/details_page.dart';
+import 'pages/home_page.dart';
 import 'themes/light_theme.dart';
 import 'themes/dark_theme.dart';
+import 'cubit/user_settings_cubit.dart';
+import 'bloc/user_details_bloc.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,8 +25,13 @@ class MyApp extends StatelessWidget {
       ),
       GoRoute(
         path: '/details',
-        builder: (BuildContext context, GoRouterState state) =>
-            const DetailsPage(),
+        builder: (BuildContext context, GoRouterState state) => BlocProvider(
+            create: (_) => UserDetailsBloc(), child: const DetailsPage()),
+      ),
+      GoRoute(
+        path: '/settings',
+        builder: (BuildContext context, GoRouterState state) => BlocProvider(
+            create: (_) => UserSettingsCubit(), child: const SettingsPage()),
       ),
     ],
   );
