@@ -1,5 +1,7 @@
 abstract class UserDetailsEvent {}
 
+class Init extends UserDetailsEvent {}
+
 class UpdateName extends UserDetailsEvent {
   String name;
 

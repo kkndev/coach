@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'pages/settings_page.dart';
 import 'pages/details_page.dart';
 import 'pages/home_page.dart';
@@ -9,7 +10,10 @@ import 'themes/dark_theme.dart';
 import 'cubit/user_settings_cubit.dart';
 import 'bloc/user_details_bloc.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  await Hive.openBox('UserSettings');
+  await Hive.openBox('UserDetails');
   runApp(MyApp());
 }
 
