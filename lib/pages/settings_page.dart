@@ -4,19 +4,8 @@ import 'package:go_router/go_router.dart';
 import '../cubit/user_settings_cubit.dart';
 import '../cubit/user_settings_state.dart';
 
-class SettingsPage extends StatefulWidget {
+class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
-
-  @override
-  State<SettingsPage> createState() => _SettingsPageState();
-}
-
-class _SettingsPageState extends State<SettingsPage> {
-  @override
-  void initState() {
-    super.initState();
-    context.read<UserSettingsCubit>().init();
-  }
 
   @override
   Widget build(BuildContext context) {

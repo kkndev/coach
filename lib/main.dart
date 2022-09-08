@@ -9,6 +9,7 @@ import 'themes/light_theme.dart';
 import 'themes/dark_theme.dart';
 import 'cubit/user_settings_cubit.dart';
 import 'bloc/user_details_bloc.dart';
+import 'bloc/user_details_event.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -30,12 +31,16 @@ class MyApp extends StatelessWidget {
       GoRoute(
         path: '/details',
         builder: (BuildContext context, GoRouterState state) => BlocProvider(
-            create: (_) => UserDetailsBloc(), child: const DetailsPage()),
+            create: (_) => UserDetailsBloc()..add(Init()),
+            lazy: false,
+            child: const DetailsPage()),
       ),
       GoRoute(
         path: '/settings',
         builder: (BuildContext context, GoRouterState state) => BlocProvider(
-            create: (_) => UserSettingsCubit(), child: const SettingsPage()),
+            create: (_) => UserSettingsCubit()..init(),
+            lazy: false,
+            child: const SettingsPage()),
       ),
     ],
   );

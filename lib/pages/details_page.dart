@@ -44,12 +44,6 @@ class _FormState extends State<_Form> {
   final TextEditingController _ageController = TextEditingController();
 
   @override
-  void initState() {
-    super.initState();
-    context.read<UserDetailsBloc>().add(Init());
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Column(
